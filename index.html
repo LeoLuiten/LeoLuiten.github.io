@@ -52,11 +52,22 @@
         }
         
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             border: 4px solid white;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-left: 2rem;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .header-text {
+            flex: 1;
         }
         
         .section-title {
@@ -64,7 +75,7 @@
             border-bottom: 2px solid var(--secondary-color);
             padding-bottom: 0.5rem;
             margin-bottom: 1.5rem;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 600;
         }
         
@@ -117,13 +128,14 @@
         
         .skill-badge {
             display: inline-block;
-            padding: 0.35rem 0.75rem;
-            margin: 0.25rem;
+            padding: 0.3rem 0.65rem;
+            margin: 0.2rem 0.2rem 0.2rem 0;
             background: var(--border-color);
             color: var(--primary-color);
             border-radius: 20px;
-            font-size: 0.875rem;
+            font-size: 0.8rem;
             border: 1px solid var(--border-color);
+            white-space: nowrap;
         }
         
         .contact-item {
@@ -180,13 +192,42 @@
         
         .years-badge {
             display: inline-block;
-            padding: 0.25rem 0.6rem;
+            padding: 0.2rem 0.5rem;
             background: var(--secondary-color);
             color: white;
             border-radius: 4px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 500;
             margin-bottom: 0.5rem;
+        }
+        
+        .employment-badge {
+            display: inline-block;
+            padding: 0.2rem 0.5rem;
+            background: #6c757d;
+            color: white;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            margin-left: 0.4rem;
+        }
+        
+        .country-badge {
+            display: inline-block;
+            padding: 0.15rem 0.4rem;
+            background: var(--border-color);
+            color: var(--primary-color);
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-left: 0.4rem;
+            border: 1px solid var(--border-color);
+        }
+        
+        .country-badge .fi {
+            margin-right: 0.2rem;
+            font-size: 0.7rem;
         }
         
         .controls-bar {
@@ -220,18 +261,156 @@
         }
         
         @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+            
+            body {
+                background-color: white !important;
+                color: #2c3e50 !important;
+            }
+            
             .controls-bar {
                 display: none !important;
             }
             
             .header-section {
-                background: var(--primary-color) !important;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+                background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color: white !important;
+                padding: 2rem 0 !important;
+                margin-bottom: 1.5rem !important;
+                break-after: avoid;
+                page-break-after: avoid;
+                break-inside: avoid !important;
+                page-break-inside: avoid !important;
+            }
+            
+            .header-section * {
+                color: white !important;
+            }
+            
+            .profile-img {
+                border-color: white !important;
+                width: 100px !important;
+                height: 100px !important;
+                margin-left: 1.5rem !important;
+                flex-shrink: 0 !important;
+            }
+            
+            .section-title {
+                color: #2c3e50 !important;
+                border-bottom-color: #3498db !important;
+                break-after: avoid;
+                page-break-after: avoid;
+            }
+            
+            .timeline-item {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            
+            .timeline-item::before {
+                background: #3498db !important;
+            }
+            
+            .timeline-item::after {
+                background: #ecf0f1 !important;
+            }
+            
+            .job-title {
+                color: #2c3e50 !important;
+            }
+            
+            .company-name {
+                color: #3498db !important;
+            }
+            
+            .date-range {
+                color: #7f8c8d !important;
             }
             
             .skill-badge {
-                border: 1px solid var(--primary-color);
+                background: #ecf0f1 !important;
+                color: #2c3e50 !important;
+                border: 1px solid #d5dce0 !important;
+            }
+            
+            .contact-item {
+                color: #2c3e50 !important;
+            }
+            
+            .contact-item i {
+                color: #3498db !important;
+            }
+            
+            .contact-item a {
+                color: #2c3e50 !important;
+                text-decoration: none !important;
+            }
+            
+            .years-badge {
+                background: #3498db !important;
+                color: white !important;
+            }
+            
+            .employment-badge {
+                background: #6c757d !important;
+                color: white !important;
+            }
+            
+            .country-badge {
+                background: #ecf0f1 !important;
+                color: #2c3e50 !important;
+                border: 1px solid #d5dce0 !important;
+            }
+            
+            .status-progress {
+                background: #d4edda !important;
+                color: #155724 !important;
+            }
+            
+            .status-completed {
+                background: #cce5ff !important;
+                color: #004085 !important;
+            }
+            
+            .status-partial {
+                background: #fff3cd !important;
+                color: #856404 !important;
+            }
+            
+            .text-secondary {
+                color: #3498db !important;
+            }
+            
+            .text-muted, .small.text-muted {
+                color: #7f8c8d !important;
+            }
+            
+            hr {
+                border-color: #ecf0f1 !important;
+            }
+            
+            .progress-bar {
+                background-color: #28a745 !important;
+            }
+            
+            .progress-bar.bg-info {
+                background-color: #17a2b8 !important;
+            }
+            
+            .mb-4, .mb-5 {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            
+            @page {
+                margin: 1cm;
+                size: A4;
             }
         }
         
@@ -255,6 +434,33 @@
         .text-secondary {
             color: var(--secondary-color) !important;
         }
+        
+        /* More compact spacing */
+        .mb-3 {
+            margin-bottom: 0.75rem !important;
+        }
+        
+        /* Ensure tech stack stays inline */
+        .d-flex.flex-wrap {
+            gap: 0;
+        }
+        
+        h6.text-muted {
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem !important;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-img {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -274,19 +480,13 @@
     <!-- Header Section -->
     <div class="header-section">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-8">
+            <div class="header-content">
+                <div class="header-text">
                     <h1 class="display-4 mb-2" data-en="Lucas Leonardo Luiten" data-nl="Lucas Leonardo Luiten">Lucas Leonardo Luiten</h1>
                     <h3 class="h4 mb-3 opacity-75" data-en="Software Engineer" data-nl="Software Engineer">Software Engineer</h3>
                     <p class="mb-0" data-en="Full-stack developer with expertise in agile methodologies, DevOps, and enterprise software development. Currently leading program delivery and technical initiatives at Fledger." data-nl="Full-stack ontwikkelaar met expertise in agile methodologieën, DevOps en enterprise softwareontwikkeling. Momenteel verantwoordelijk voor programma delivery en technische initiatieven bij Fledger.">Full-stack developer with expertise in agile methodologies, DevOps, and enterprise software development. Currently leading program delivery and technical initiatives at Fledger.</p>
                 </div>
-                <div class="col-md-4 text-center text-md-end">
-                    <div class="d-inline-block position-relative">
-                        <div class="profile-img bg-white d-flex align-items-center justify-content-center">
-                            <img src="https://media.licdn.com/dms/image/v2/D4D03AQHT_4k1U8cnQA/profile-displayphoto-crop_800_800/B4DZmjzuCXJUAI-/0/1759389869112?e=1762387200&v=beta&t=TZfeBb6vYaExGjfqfWe7T4oCwH3Ovsnb851RG8q95yU" alt="Profile Image" class="profile-img">
-                        </div>
-                    </div>
-                </div>
+                <img src="https://media.licdn.com/dms/image/v2/D4D03AQHT_4k1U8cnQA/profile-displayphoto-crop_800_800/B4DZmjzuCXJUAI-/0/1759389869112?e=1765411200&v=beta&t=m0SQ48xFU7g9sE51UWmwgn5wqN-rxYk28cMdIWYw3TE" alt="Profile Image" class="profile-img">
             </div>
         </div>
     </div>
@@ -351,6 +551,44 @@
                     </div>
                 </section>
 
+                <!-- Preferred Technology Stack -->
+                <section class="mb-4 fade-in">
+                    <h2 class="section-title" data-en="Technologies" data-nl="Technologieën">Technologies</h2>
+                    <p class="small text-muted mb-2" data-en="Production-ready stack for rapid, enterprise-grade deployment" data-nl="Productie-klare stack voor snelle, enterprise-grade deployment">Production-ready stack for rapid, enterprise-grade deployment</p>
+                    
+                    <div class="mb-3">
+                        <h6 class="text-muted mb-2">Frontend & Backend</h6>
+                        <div class="d-flex flex-wrap">
+                            <span class="skill-badge">TypeScript</span>
+                            <span class="skill-badge">React</span>
+                            <span class="skill-badge">Next.js</span>
+                            <span class="skill-badge">NestJS</span>
+                            <span class="skill-badge">Prisma ORM</span>
+                            <span class="skill-badge">Express.js</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <h6 class="text-muted mb-2" data-en="Infrastructure & Data" data-nl="Infrastructuur & Data">Infrastructure & Data</h6>
+                        <div class="d-flex flex-wrap">
+                            <span class="skill-badge">Digital Ocean</span>
+                            <span class="skill-badge">Azure Cloud</span>
+                            <span class="skill-badge">Docker</span>
+                            <span class="skill-badge">PostgreSQL</span>
+                            <span class="skill-badge">Pinecone</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <h6 class="text-muted mb-2" data-en="DevOps & Quality" data-nl="DevOps & Kwaliteit">DevOps & Quality</h6>
+                        <div class="d-flex flex-wrap">
+                            <span class="skill-badge">GitHub Actions</span>
+                            <span class="skill-badge">SonarQube</span>
+                            <span class="skill-badge">Jest</span>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- Languages -->
                 <section class="mb-4 fade-in">
                     <h2 class="section-title" data-en="Languages" data-nl="Talen">Languages</h2>
@@ -403,53 +641,6 @@
                         <span class="skill-badge" data-en="Stakeholder Coordination" data-nl="Stakeholder Coördinatie">Stakeholder Coordination</span>
                         <span class="skill-badge">DevOps & CI/CD</span>
                     </div>
-                    <div>
-                        <h6 class="text-muted mb-2" data-en="Domain Knowledge" data-nl="Domeinkennis">Domain Knowledge</h6>
-                        <span class="skill-badge" data-en="Legal Tech Platforms" data-nl="Legal Tech Platforms">Legal Tech Platforms</span>
-                        <span class="skill-badge">Enterprise SaaS</span>
-                        <span class="skill-badge" data-en="Regulated Industries" data-nl="Gereguleerde Industrieën">Regulated Industries</span>
-                        <span class="skill-badge" data-en="Public Sector" data-nl="Publieke Sector">Public Sector</span>
-                    </div>
-                </section>
-
-                <!-- Preferred Technology Stack -->
-                <section class="mt-4 fade-in">
-                    <h2 class="section-title" data-en="Preferred Tech Stack" data-nl="Voorkeur Tech Stack">Preferred Tech Stack</h2>
-                    <p class="small text-muted mb-3" data-en="Technologies I can rapidly deploy in fast-paced environments" data-nl="Technologieën die ik snel kan inzetten in snelle omgevingen">Technologies I can rapidly deploy in fast-paced environments</p>
-                    
-                    <div class="mb-3">
-                        <h6 class="text-muted mb-2">Frontend & Backend</h6>
-                        <div class="d-flex flex-wrap">
-                            <span class="skill-badge">TypeScript</span>
-                            <span class="skill-badge">React</span>
-                            <span class="skill-badge">Next.js</span>
-                            <span class="skill-badge">NestJS</span>
-                            <span class="skill-badge">Prisma ORM</span>
-                            <span class="skill-badge">Express.js</span>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <h6 class="text-muted mb-2" data-en="Infrastructure & Data" data-nl="Infrastructuur & Data">Infrastructure & Data</h6>
-                        <div class="d-flex flex-wrap">
-                            <span class="skill-badge">Digital Ocean</span>
-                            <span class="skill-badge">Azure Cloud</span>
-                            <span class="skill-badge">Docker</span>
-                            <span class="skill-badge">PostgreSQL</span>
-                            <span class="skill-badge">Pinecone</span>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <h6 class="text-muted mb-2" data-en="DevOps & Quality" data-nl="DevOps & Kwaliteit">DevOps & Quality</h6>
-                        <div class="d-flex flex-wrap">
-                            <span class="skill-badge">GitHub Actions</span>
-                            <span class="skill-badge">SonarQube</span>
-                            <span class="skill-badge">Jest</span>
-                        </div>
-                    </div>
-                    
-                    <p class="small text-muted mt-2" data-en="Also experienced with: Java, Spring Boot, Python, FastAPI, Visual Fox Pro" data-nl="Ook ervaring met: Java, Spring Boot, Python, FastAPI, Visual Fox Pro"><em>Also experienced with: Java, Spring Boot, Python, FastAPI, Visual Fox Pro</em></p>
                 </section>
             </div>
 
@@ -461,8 +652,12 @@
                     
                     <div class="timeline-item">
                         <span class="years-badge" data-en="1+ year" data-nl="1+ jaar">1+ year</span>
+                        <span class="employment-badge" data-en="Full-Time" data-nl="Fulltime">Full-Time</span>
                         <h4 class="job-title" data-en="Head of Program Delivery & Senior Software Engineer" data-nl="Hoofd Program Delivery & Senior Software Engineer">Head of Program Delivery & Senior Software Engineer</h4>
-                        <div class="company-name">Fledger - LISA AI Platform</div>
+                        <div class="company-name">
+                            Fledger - LISA AI Platform
+                            <span class="country-badge"><span class="fi fi-nl"></span><span data-en="Netherlands" data-nl="Nederland">Netherlands</span></span>
+                        </div>
                         <div class="date-range mb-2" data-en="September 2024 - Present" data-nl="September 2024 - Heden">September 2024 - Present</div>
                         <p class="mb-2"><strong data-en="Role:" data-nl="Rol:">Role:</strong> <span data-en="Technical generalist and operational lead ensuring platform stability while enabling the team to focus on AI innovation. First responder for critical incidents and key decision-maker for infrastructure and technical strategy." data-nl="Technische generalist en operationeel leider die platformstabiliteit waarborgt terwijl het team zich kan focussen op AI-innovatie. Eerste hulp bij kritieke incidenten en belangrijke beslisser voor infrastructuur en technische strategie.">Technical generalist and operational lead ensuring platform stability while enabling the team to focus on AI innovation. First responder for critical incidents and key decision-maker for infrastructure and technical strategy.</span></p>
                         <ul>
@@ -479,16 +674,24 @@
 
                     <div class="timeline-item">
                         <span class="years-badge" data-en="<1 year" data-nl="<1 jaar"><1 year</span>
+                        <span class="employment-badge" data-en="Full-Time" data-nl="Fulltime">Full-Time</span>
                         <h4 class="job-title" data-en="Senior Software Engineer" data-nl="Senior Software Engineer">Senior Software Engineer</h4>
-                        <div class="company-name">Avature</div>
+                        <div class="company-name">
+                            Avature
+                            <span class="country-badge"><span class="fi fi-ar"></span>Argentina</span>
+                        </div>
                         <div class="date-range mb-2" data-en="February 2024 - June 2024" data-nl="Februari 2024 - Juni 2024">February 2024 - June 2024</div>
                         <p data-en="Worked on optimizing legacy backend systems, maintaining test suites, performing cross-team code reviews, and contributing to cross-functional teams in an agile environment." data-nl="Werkte aan het optimaliseren van legacy backend systemen, onderhouden van testsuites, uitvoeren van cross-team code reviews en bijdragen aan cross-functionele teams in een agile omgeving.">Worked on optimizing legacy backend systems, maintaining test suites, performing cross-team code reviews, and contributing to cross-functional teams in an agile environment.</p>
                     </div>
 
                     <div class="timeline-item">
                         <span class="years-badge" data-en="2+ years" data-nl="2+ jaar">2+ years</span>
+                        <span class="employment-badge" data-en="Full-Time" data-nl="Fulltime">Full-Time</span>
                         <h4 class="job-title" data-en="Full Stack Software Developer" data-nl="Full Stack Software Ontwikkelaar">Full Stack Software Developer</h4>
-                        <div class="company-name">DLR Software</div>
+                        <div class="company-name">
+                            DLR Software
+                            <span class="country-badge"><span class="fi fi-ar"></span>Argentina</span>
+                        </div>
                         <div class="date-range mb-2" data-en="November 2021 - January 2024" data-nl="November 2021 - Januari 2024">November 2021 - January 2024</div>
                         <p class="mb-2" data-en="Developed and maintained custom software solutions for public and private sector clients." data-nl="Ontwikkelde en onderhield custom softwareoplossingen voor publieke en private sector klanten.">Developed and maintained custom software solutions for public and private sector clients.</p>
                         <ul>
@@ -502,7 +705,10 @@
                     <div class="timeline-item">
                         <span class="years-badge" data-en="2+ years" data-nl="1+ jaar">1+ years</span>
                         <h4 class="job-title" data-en="Computer Repair Specialist & Supervisor" data-nl="Computer Reparatie Specialist & Supervisor">Computer Repair Specialist & Supervisor</h4>
-                        <div class="company-name">LSSI</div>
+                        <div class="company-name">
+                            LSSI
+                            <span class="country-badge"><span class="fi fi-ar"></span>Argentina</span>
+                        </div>
                         <div class="date-range mb-2" data-en="February 2020 - November 2021" data-nl="Februari 2020 - November 2021">February 2020 - November 2021</div>
                         <p class="mb-2" data-en="Supervised technicians and managed technical operations." data-nl="Superviseerde technici en beheerde technische operaties.">Supervised technicians and managed technical operations.</p>
                         <ul>
@@ -520,7 +726,10 @@
                     
                     <div class="mb-4">
                         <h4 class="job-title" data-en="Associate's Degree in Computer Systems Analysis" data-nl="Associate's Degree in Computer Systeem Analyse">Associate's Degree in Computer Systems Analysis</h4>
-                        <div class="company-name">Instituto Superior Santo Domingo</div>
+                        <div class="company-name">
+                            Instituto Superior Santo Domingo
+                            <span class="country-badge"><span class="fi fi-ar"></span>Argentina</span>
+                        </div>
                         <div class="date-range mb-2" data-en="May 2024 - August 2026" data-nl="Mei 2024 - Augustus 2026">May 2024 - August 2026 <span class="education-status status-progress ms-2" data-en="In Progress" data-nl="Bezig">In Progress</span></div>
                         <p class="mb-1" data-en="Specializing in system analysis, software development, and IT infrastructure. Completing degree remotely alongside full-time work to formalize extensive industry experience with recognized academic credentials." data-nl="Specialiseert in systeemanalyse, softwareontwikkeling en IT-infrastructuur. Voltooit graad op afstand naast fulltime werk om uitgebreide industrie-ervaring te formaliseren met erkende academische kwalificaties.">Specializing in system analysis, software development, and IT infrastructure. Completing degree remotely alongside full-time work to formalize extensive industry experience with recognized academic credentials.</p>
                         <p class="text-muted small" data-en="Dutch Equivalent: HBO" data-nl="Nederlands Equivalent: HBO">Dutch Equivalent: HBO</p>
@@ -528,7 +737,10 @@
 
                     <div class="mb-4">
                         <h4 class="job-title" data-en="Associate Degree in Programming" data-nl="Associate Degree in Programmeren">Associate Degree in Programming</h4>
-                        <div class="company-name">Universidad Tecnológica Nacional</div>
+                        <div class="company-name">
+                            Universidad Tecnológica Nacional
+                            <span class="country-badge"><span class="fi fi-ar"></span>Argentina</span>
+                        </div>
                         <div class="date-range mb-2" data-en="March 2021 - May 2024" data-nl="Maart 2021 - Mei 2024">March 2021 - May 2024 <span class="education-status status-partial ms-2" data-en="Transferred" data-nl="Overgedragen">Transferred</span></div>
                         <p class="mb-1" data-en="Specialized in programming methodologies, databases, and software design. Transferred to Instituto Superior Santo Domingo for remote completion." data-nl="Gespecialiseerd in programmeermethodologieën, databases en softwareontwerp. Overgedragen naar Instituto Superior Santo Domingo voor voltooiing op afstand.">Specialized in programming methodologies, databases, and software design. Transferred to Instituto Superior Santo Domingo for remote completion.</p>
                         <p class="text-muted small" data-en="Dutch Equivalent: HBO" data-nl="Nederlands Equivalent: HBO">Dutch Equivalent: HBO</p>
@@ -536,14 +748,20 @@
 
                     <div class="mb-4">
                         <h4 class="job-title" data-en="Psychology Studies" data-nl="Psychologie Studies">Psychology Studies</h4>
-                        <div class="company-name">Universidad Nacional de Córdoba</div>
+                        <div class="company-name">
+                            Universidad Nacional de Córdoba
+                            <span class="country-badge"><span class="fi fi-ar"></span>Argentina</span>
+                        </div>
                         <div class="date-range mb-2" data-en="2016 - 2020" data-nl="2016 - 2020">2016 - 2020 <span class="education-status status-partial ms-2" data-en="Partially Completed" data-nl="Gedeeltelijk Voltooid">Partially Completed</span></div>
                         <p data-en="Studied cognitive processes, behavioral psychology, and research methodologies." data-nl="Bestudeerde cognitieve processen, gedragspsychologie en onderzoeksmethodologieën.">Studied cognitive processes, behavioral psychology, and research methodologies.</p>
                     </div>
 
                     <div class="mb-4">
                         <h4 class="job-title" data-en="High School Diploma in Humanities and Social Sciences" data-nl="Middelbare School Diploma in Geesteswetenschappen en Sociale Wetenschappen">High School Diploma in Humanities and Social Sciences</h4>
-                        <div class="company-name">Colegio Nacional de Monserrat</div>
+                        <div class="company-name">
+                            Colegio Nacional de Monserrat
+                            <span class="country-badge"><span class="fi fi-ar"></span>Argentina</span>
+                        </div>
                         <div class="date-range mb-2" data-en="2006 - 2014" data-nl="2006 - 2014">2006 - 2014 <span class="education-status status-completed ms-2" data-en="Completed" data-nl="Voltooid">Completed</span></div>
                         <p class="mb-1" data-en="Comprehensive education in humanities and social sciences." data-nl="Uitgebreide opleiding in geesteswetenschappen en sociale wetenschappen.">Comprehensive education in humanities and social sciences.</p>
                         <p class="text-muted small" data-en="Dutch Equivalent: HAVO" data-nl="Nederlands Equivalent: HAVO">Dutch Equivalent: HAVO</p>
